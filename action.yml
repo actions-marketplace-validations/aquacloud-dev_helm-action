@@ -1,5 +1,5 @@
-name: Helm
-description: Upload chart on helm repository
+name: release-helm-package
+description: Update version and release helm package
 
 inputs:
   version:
