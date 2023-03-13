@@ -1,6 +1,10 @@
 name: release-helm-package
 description: Update version and release helm package
 
+branding:
+  icon: box
+  color: gray-dark
+
 inputs:
   version:
     required: true
