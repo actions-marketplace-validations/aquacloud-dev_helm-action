@@ -3,26 +3,24 @@ description: Upload chart on helm repository
 
 inputs:
   version:
-    type: string
     required: true
     description: Version to release
   repo:
-    type: string
     required: true
     description: Repository
   commit_user_email:
-    type: string
+    description: Commit Email
     required: false
     default: ci@github.com
   commit_user_name:
-    type: string
+    description: Commit username
     required: false
     default: Github Actions
-secrets:
   token:
     description: Github Token
     required: true
-run:
+author: Federico Vitale <federico.vitale@aquacloud.it>
+runs:
   using: composite
   steps:
     - name: Helm Installation
@@ -59,6 +57,7 @@ run:
         updateFile: true
     - name: Helm Package
       run: helm package .chart -d helm
+      shell: bash
     - name: Helm Push
       uses: dmnemec/copy_file_to_another_repo_action@main
       env:
